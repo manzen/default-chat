@@ -11,7 +11,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal'])
+
 app.post('/api/conversation', (request, response) => {
+  console.log(request);
   watson.create_session().then((result) => {
     watson.message(request.body.text, result.session_id).then((res) => {
       const resText = res.output.generic[0].text;

@@ -1,7 +1,5 @@
 const AssistantV2 = require('watson-developer-cloud/assistant/v2');
 
-console.log(process.env)
-
 const service = new AssistantV2({
     version: process.env.ASSISTANT_VERSION,
     iam_apikey: process.env.ASSISTANT_APIKEY,
